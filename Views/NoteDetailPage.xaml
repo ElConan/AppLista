@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppLista.Views.NoteDetailPage"
+             Title="Nota">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Entry Placeholder="Título"
+                   Text="{Binding titulo}" />
+
+            <Editor Placeholder="Escribe tu nota..."
+                    HeightRequest="200"
+                    Text="{Binding contenido}" />
+
+            <Button Text="Guardar"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    Command="{Binding GuardarCommand}" />
+
+            <Button Text="Eliminar"
+                    BackgroundColor="#F44336"
+                    TextColor="White"
+                    Command="{Binding EliminarCommand}" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

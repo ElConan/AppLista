@@ -5,14 +5,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.Maui.Controls;
 
 namespace AppLista.ViewModels
 {
+    [QueryProperty(nameof(NoteId), "noteId")]
     public class NoteDetailViewModel : BaseViewModel
     {
         int _id;
         string _titulo;
         string _contenido;
+        int noteId;
+
+        public int NoteId
+        {
+            get => noteId;
+            set
+            {
+                noteId = value;
+                LoadNote(value);
+            }
+        }
 
         public int id
         {
@@ -91,6 +104,18 @@ namespace AppLista.ViewModels
             {
                 await App.Database.eliminar_notas(nota);
                 await Shell.Current.GoToAsync("..");
+            }
+        }
+        async void LoadNote(int id)
+        {
+            var notes = await App.Database.get_notas();
+            var note = notes.FirstOrDefault(n => n.id == id);
+
+            if (note != null)
+            {
+                id = note.id;
+                titulo = note.titulo;
+                contenido = note.contenido;
             }
         }
     }

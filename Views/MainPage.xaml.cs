@@ -1,4 +1,5 @@
-﻿using AppLista.ViewModels;
+﻿using AppLista.Models;
+using AppLista.ViewModels;
 
 namespace AppLista.Views
 {
@@ -22,6 +23,17 @@ namespace AppLista.Views
         async void OnAddNote(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("NoteDetailPage");
+        }
+
+        async void OnNoteSelected(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.CurrentSelection.FirstOrDefault() is Nota selectedNote)
+            {
+                await Shell.Current.GoToAsync($"{nameof(NoteDetailPage)}?noteId={selectedNote.id}");
+
+                ((CollectionView)sender).SelectedItem = null;
+
+            }
         }
     }
 

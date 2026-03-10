@@ -6,14 +6,16 @@
 
     <Grid>
         <CollectionView ItemsSource="{Binding Notas}"
-                        SelectionMode="Single">
+                        SelectionMode="Single"
+                        SelectionChanged="OnNoteSelected">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
 
                     <Frame Margin="10"
                            Padding="10"
-                           BorderColor="LightGray">
+                           BorderColor="LightGray"
+                           InputTransparent="True">
 
                         <VerticalStackLayout>
 

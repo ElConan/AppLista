@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppLista.ViewModels
 {
+    
     public class NotesViewModel : BaseViewModel
     {
         public ObservableCollection<Nota> Notas { get; set; } = new();

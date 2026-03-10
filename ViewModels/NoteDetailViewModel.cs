@@ -65,9 +65,9 @@ namespace AppLista.ViewModels
                 return;
             }
 
-            Nota nota = new()
+            Nota nota = new Nota
             {
-                id = _id,
+                id = id,
                 titulo = titulo,
                 contenido = contenido,
                 fecha_act = DateTime.Now
@@ -80,31 +80,23 @@ namespace AppLista.ViewModels
 
         async Task EliminarNota()
         {
-            if (id == 0)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "No se puede eliminar una nota que no ha sido guardada",
-                    "OK");
-                return;
-            }
-            Nota nota = new()
-            {
-                id = _id,
-                titulo = titulo,
-                contenido = contenido,
-                fecha_act = DateTime.Now
-            };
-            bool confirmacion = await Application.Current.MainPage.DisplayAlert(
-                "Confirmar eliminación",
-                "¿Estás seguro de que deseas eliminar esta nota?",
+            bool confirm = await Application.Current.MainPage.DisplayAlert(
+                "Eliminar",
+                "¿Deseas eliminar esta nota?",
                 "Sí",
                 "No");
-            if (confirmacion)
+
+            if (!confirm)
+                return;
+
+            Nota nota = new Nota
             {
-                await App.Database.eliminar_notas(nota);
-                await Shell.Current.GoToAsync("..");
-            }
+                id = id
+            };
+
+            await App.Database.eliminar_notas(nota);
+
+            await Shell.Current.GoToAsync("..");
         }
         async void LoadNote(int id)
         {
@@ -113,7 +105,7 @@ namespace AppLista.ViewModels
 
             if (note != null)
             {
-                id = note.id;
+                this.id = note.id;
                 titulo = note.titulo;
                 contenido = note.contenido;
             }

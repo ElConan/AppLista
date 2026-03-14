@@ -132,9 +132,10 @@ El video muestra:
 - edición
 - eliminación
 - búsqueda
-- persistencia de datos
 
-Duración máxima: **4 minutos**
+![Video demostración](capturas/explicacion.mp4)]
+
+
 
 ---
 

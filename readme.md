@@ -87,16 +87,13 @@ Los datos permanecen almacenados incluso después de cerrar la aplicación.
 
 # 📸 Capturas de pantalla
 
-/screenshots
-main.png
-detail.png
+![Lista de notas](capturas/main.jpeg)
 
+![Edicion de nota](captuas/detail2.jpeg)
 
-Ejemplo:
+![Detalle de nota](capturas/detail.jpeg))
 
-![Lista de notas](screenshots/main.png)
-
-![Detalle de nota](screenshots/detail.png)
+![Eliminación de nota](capturas/delete.jpeg)]
 
 ---
 
@@ -105,7 +102,7 @@ Ejemplo:
 1. Clonar el repositorio
 
 
-git clone https://github.com/tuusuario/AppLista.git
+git clone https://github.com/ElConan/AppLista
 
 
 2. Abrir el proyecto en **Visual Studio 2022**
@@ -154,6 +151,6 @@ Duración máxima: **4 minutos**
 
 Proyecto desarrollado por:
 
-**Nico Joel**
+**Nicolas Altamirano**
 
-Estudiante de Tecnología en Desarrollo de Software
+Egresado de Tecnología en Desarrollo de Software

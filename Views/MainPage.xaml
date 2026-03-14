@@ -3,28 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppLista.Views.MainPage"
              Title="Mis Notas"
+             Shell.BackgroundColor="#F5F5F5"
              BackgroundColor="#F5F5F5">
 
     <Grid RowDefinitions="Auto,Auto,*">
+      
 
-        <!-- BUSCADOR -->
         <SearchBar Grid.Row="0"
                    Placeholder="Buscar notas..."
                    TextChanged="OnSearchTextChanged"
                    Margin="15,10"
+                   HeightRequest="42"
+                   WidthRequest="350"
                    BackgroundColor="White"
                    TextColor="Black"/>
 
-        <!-- BOTON EXPORTAR -->
         <Button Grid.Row="1"
                 Text="Exportar Notas"
                 Margin="15,5"
                 BackgroundColor="#4CAF50"
                 TextColor="White"
                 CornerRadius="8"
+                WidthRequest="250"
                 Clicked="OnExport"/>
 
-        <!-- LISTA DE NOTAS -->
         <CollectionView Grid.Row="2"
                         ItemsSource="{Binding Notas}"
                         SelectionMode="Single"
@@ -67,7 +69,6 @@
 
         </CollectionView>
 
-        <!-- BOTON FLOTANTE -->
         <Button Text="+"
                 FontSize="28"
                 WidthRequest="65"

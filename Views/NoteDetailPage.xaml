@@ -2,28 +2,56 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppLista.Views.NoteDetailPage"
-             Title="Nota">
+             Title="Nota"
+             Shell.BackgroundColor="#F5F5F5"
+             BackgroundColor="#F5F5F5">
 
     <ScrollView>
 
-        <VerticalStackLayout Padding="20" Spacing="15">
+        <VerticalStackLayout Padding="20" Spacing="20">
 
-            <Entry Placeholder="Título"
-                   Text="{Binding titulo}" />
+            <Frame BackgroundColor="White"
+                   CornerRadius="12"
+                   Padding="10"
+                   BorderColor="#E0E0E0">
 
-            <Editor Placeholder="Escribe tu nota..."
-                    HeightRequest="200"
-                    Text="{Binding contenido}" />
+                <Entry Placeholder="Título"
+                       Text="{Binding titulo}"
+                       TextColor="Black"
+                       FontSize="18"/>
 
-            <Button Text="Guardar"
-                    BackgroundColor="#4CAF50"
-                    TextColor="White"
-                    Command="{Binding GuardarCommand}" />
+            </Frame>
 
-            <Button Text="Eliminar"
-                    BackgroundColor="#F44336"
-                    TextColor="White"
-                    Command="{Binding EliminarCommand}" />
+            <Frame BackgroundColor="White"
+                   CornerRadius="12"
+                   Padding="10"
+                   BorderColor="#E0E0E0">
+
+                <Editor Placeholder="Escribe tu nota..."
+                        HeightRequest="200"
+                        Text="{Binding contenido}"
+                        TextColor="Black"
+                        FontSize="16"/>
+
+            </Frame>
+
+            <HorizontalStackLayout Spacing="15">
+
+                <Button Text="Guardar"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding GuardarCommand}"/>
+
+                <Button Text="Eliminar"
+                        BackgroundColor="#F44336"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding EliminarCommand}"/>
+
+            </HorizontalStackLayout>
 
         </VerticalStackLayout>
 

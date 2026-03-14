@@ -35,6 +35,18 @@ namespace AppLista.Views
 
             }
         }
+
+        async void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+        {
+            string texto = e.NewTextValue.ToLower();
+
+            viewModel.FiltrarNotas(texto);
+        }
+
+        async void OnExport(object sender, EventArgs e)
+        {
+            await viewModel.ExportarNotas();
+        }
     }
 
 }
